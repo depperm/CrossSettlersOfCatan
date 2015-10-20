@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\draw__000\Documents\CrossSettlersOfCatan\CrossSettlersOfCatan\gtk-gui\MainWindow.cs">
+    <Files>
+      <File FileName="CrossSettlersOfCatan\Main.cs" Line="12" Column="16" />
+      <File FileName="CrossSettlersOfCatan\MainWindow.cs" Line="54" Column="14" />
+      <File FileName="c:\Users\draw__000\Documents\CrossSettlersOfCatan\CrossSettlersOfCatan\gtk-gui\MainWindow.cs" Line="145" Column="1" />
+      <File FileName="CrossSettlersOfCatan\AssemblyInfo.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -4,7 +4,7 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
-	private global::Gtk.Action SaveAction;
+	private global::Gtk.Action FileAction;
 	private global::Gtk.Action LoadAction;
 	private global::Gtk.Action CreateAction;
 	private global::Gtk.Action ChangeHeightAction;
@@ -14,8 +14,8 @@ public partial class MainWindow
 	private global::Gtk.Action ExplorersNPirates3Action;
 	private global::Gtk.Action ExplorersNPirates4Action;
 	private global::Gtk.Action ExplorersNPirates5Action;
-	private global::Gtk.Action FromFileAction;
-	private global::Gtk.Action CompletelyBlankAction;
+	private global::Gtk.Action openAction;
+	private global::Gtk.Action newAction;
 	private global::Gtk.Action BlankWaterAction;
 	private global::Gtk.Action BaseAction;
 	private global::Gtk.ToggleAction SeafarerSAction;
@@ -25,9 +25,10 @@ public partial class MainWindow
 	private global::Gtk.ToggleAction sixAction;
 	private global::Gtk.ToggleAction sevenAction;
 	private global::Gtk.ToggleAction eightAction;
+	private global::Gtk.Action floppyAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.MenuBar menubar3;
-	private global::Gtk.Image image1;
+	private global::Gtk.DrawingArea drawingarea1;
 	
 	protected virtual void Build ()
 	{
@@ -35,9 +36,9 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.UIManager = new global::Gtk.UIManager ();
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
-		this.SaveAction = new global::Gtk.Action ("SaveAction", global::Mono.Unix.Catalog.GetString ("Save"), null, null);
-		this.SaveAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Save");
-		w1.Add (this.SaveAction, null);
+		this.FileAction = new global::Gtk.Action ("FileAction", global::Mono.Unix.Catalog.GetString ("File"), null, null);
+		this.FileAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Save");
+		w1.Add (this.FileAction, null);
 		this.LoadAction = new global::Gtk.Action ("LoadAction", global::Mono.Unix.Catalog.GetString ("Load"), null, null);
 		this.LoadAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Load");
 		w1.Add (this.LoadAction, null);
@@ -65,12 +66,12 @@ public partial class MainWindow
 		this.ExplorersNPirates5Action = new global::Gtk.Action ("ExplorersNPirates5Action", global::Mono.Unix.Catalog.GetString ("Explorers \'n Pirates 5"), null, null);
 		this.ExplorersNPirates5Action.ShortLabel = global::Mono.Unix.Catalog.GetString ("Explorers \'n Pirates 5");
 		w1.Add (this.ExplorersNPirates5Action, null);
-		this.FromFileAction = new global::Gtk.Action ("FromFileAction", global::Mono.Unix.Catalog.GetString ("From File"), null, null);
-		this.FromFileAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("From File");
-		w1.Add (this.FromFileAction, null);
-		this.CompletelyBlankAction = new global::Gtk.Action ("CompletelyBlankAction", global::Mono.Unix.Catalog.GetString ("Completely Blank"), null, null);
-		this.CompletelyBlankAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Completely Blank");
-		w1.Add (this.CompletelyBlankAction, null);
+		this.openAction = new global::Gtk.Action ("openAction", global::Mono.Unix.Catalog.GetString ("From File"), null, "gtk-open");
+		this.openAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("From File");
+		w1.Add (this.openAction, null);
+		this.newAction = new global::Gtk.Action ("newAction", global::Mono.Unix.Catalog.GetString ("Completely Blank"), null, "gtk-new");
+		this.newAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Completely Blank");
+		w1.Add (this.newAction, null);
 		this.BlankWaterAction = new global::Gtk.Action ("BlankWaterAction", global::Mono.Unix.Catalog.GetString ("Blank Water"), null, null);
 		this.BlankWaterAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Blank Water");
 		w1.Add (this.BlankWaterAction, null);
@@ -87,17 +88,20 @@ public partial class MainWindow
 		this.InfinityAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Infinity");
 		w1.Add (this.InfinityAction, null);
 		this.fiveAction = new global::Gtk.ToggleAction ("fiveAction", global::Mono.Unix.Catalog.GetString ("five"), null, null);
-		this.fiveAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("5");
+		this.fiveAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Five");
 		w1.Add (this.fiveAction, null);
 		this.sixAction = new global::Gtk.ToggleAction ("sixAction", global::Mono.Unix.Catalog.GetString ("six"), null, null);
-		this.sixAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("6");
+		this.sixAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Six");
 		w1.Add (this.sixAction, null);
 		this.sevenAction = new global::Gtk.ToggleAction ("sevenAction", global::Mono.Unix.Catalog.GetString ("seven"), null, null);
-		this.sevenAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("7");
+		this.sevenAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Seven");
 		w1.Add (this.sevenAction, null);
 		this.eightAction = new global::Gtk.ToggleAction ("eightAction", global::Mono.Unix.Catalog.GetString ("eight"), null, null);
-		this.eightAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("8");
+		this.eightAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Eight");
 		w1.Add (this.eightAction, null);
+		this.floppyAction = new global::Gtk.Action ("floppyAction", global::Mono.Unix.Catalog.GetString ("Save"), null, "gtk-floppy");
+		this.floppyAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Save");
+		w1.Add (this.floppyAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -111,7 +115,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString (@"<ui><menubar name='menubar3'><menu name='SaveAction' action='SaveAction'/><menu name='LoadAction' action='LoadAction'><menuitem name='CatanBaseAction' action='CatanBaseAction'/><menuitem name='ExplorersNPirates1Action' action='ExplorersNPirates1Action'/><menuitem name='ExplorersNPirates2Action' action='ExplorersNPirates2Action'/><menuitem name='ExplorersNPirates3Action' action='ExplorersNPirates3Action'/><menuitem name='ExplorersNPirates4Action' action='ExplorersNPirates4Action'/><menuitem name='ExplorersNPirates5Action' action='ExplorersNPirates5Action'/><menuitem name='FromFileAction' action='FromFileAction'/><menuitem name='CompletelyBlankAction' action='CompletelyBlankAction'/><menuitem name='BlankWaterAction' action='BlankWaterAction'/></menu><menu name='CreateAction' action='CreateAction'><menuitem name='BaseAction' action='BaseAction'/><menuitem name='SeafarerSAction' action='SeafarerSAction'/><menuitem name='ExplorersNPiratesAction' action='ExplorersNPiratesAction'/><menuitem name='InfinityAction' action='InfinityAction'/></menu><menu name='ChangeHeightAction' action='ChangeHeightAction'><menuitem name='fiveAction' action='fiveAction'/><menuitem name='sixAction' action='sixAction'/><menuitem name='sevenAction' action='sevenAction'/><menuitem name='eightAction' action='eightAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString (@"<ui><menubar name='menubar3'><menu name='FileAction' action='FileAction'><menuitem name='floppyAction' action='floppyAction'/></menu><menu name='LoadAction' action='LoadAction'><menuitem name='CatanBaseAction' action='CatanBaseAction'/><separator/><menuitem name='ExplorersNPirates1Action' action='ExplorersNPirates1Action'/><menuitem name='ExplorersNPirates2Action' action='ExplorersNPirates2Action'/><menuitem name='ExplorersNPirates3Action' action='ExplorersNPirates3Action'/><menuitem name='ExplorersNPirates4Action' action='ExplorersNPirates4Action'/><menuitem name='ExplorersNPirates5Action' action='ExplorersNPirates5Action'/><separator/><menuitem name='openAction' action='openAction'/><separator/><menuitem name='newAction' action='newAction'/><menuitem name='BlankWaterAction' action='BlankWaterAction'/></menu><menu name='CreateAction' action='CreateAction'><menuitem name='BaseAction' action='BaseAction'/><separator/><menuitem name='SeafarerSAction' action='SeafarerSAction'/><menuitem name='ExplorersNPiratesAction' action='ExplorersNPiratesAction'/><menuitem name='InfinityAction' action='InfinityAction'/></menu><menu name='ChangeHeightAction' action='ChangeHeightAction'><menuitem name='fiveAction' action='fiveAction'/><menuitem name='sixAction' action='sixAction'/><menuitem name='sevenAction' action='sevenAction'/><menuitem name='eightAction' action='eightAction'/></menu></menubar></ui>");
 		this.menubar3 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar3")));
 		this.menubar3.Name = "menubar3";
 		this.vbox1.Add (this.menubar3);
@@ -120,18 +124,21 @@ public partial class MainWindow
 		w2.Expand = false;
 		w2.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.image1 = new global::Gtk.Image ();
-		this.image1.Name = "image1";
-		this.vbox1.Add (this.image1);
-		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.image1]));
+		this.drawingarea1 = new global::Gtk.DrawingArea ();
+		this.drawingarea1.Name = "drawingarea1";
+		this.vbox1.Add (this.drawingarea1);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.drawingarea1]));
 		w3.Position = 1;
-		w3.Expand = false;
-		w3.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.fiveAction.Changed += new global::Gtk.ChangedHandler (this.OnFiveActionChanged);
+		this.sixAction.Changed += new global::Gtk.ChangedHandler (this.OnSixActionChanged);
+		this.sevenAction.Changed += new global::Gtk.ChangedHandler (this.OnSevenActionChanged);
+		this.eightAction.Changed += new global::Gtk.ChangedHandler (this.OnEightActionChanged);
+		this.floppyAction.Activated += new global::System.EventHandler (this.OnFloppyActionActivated);
 	}
 }

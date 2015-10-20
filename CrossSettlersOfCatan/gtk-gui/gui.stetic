@@ -6,13 +6,12 @@
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/CrossSettlersOfCatan.exe" internal="true" />
-    <widget-library name="../../../../../../Program Files (x86)/Unity/MonoDevelop/AddIns/MonoDevelop.GtkCore/libstetic.dll" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="655 513">
     <action-group name="Default">
-      <action id="SaveAction">
+      <action id="FileAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Save</property>
+        <property name="Label" translatable="yes">File</property>
         <property name="ShortLabel" translatable="yes">Save</property>
       </action>
       <action id="LoadAction">
@@ -60,15 +59,17 @@
         <property name="Label" translatable="yes">Explorers 'n Pirates 5</property>
         <property name="ShortLabel" translatable="yes">Explorers 'n Pirates 5</property>
       </action>
-      <action id="FromFileAction">
+      <action id="openAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">From File</property>
         <property name="ShortLabel" translatable="yes">From File</property>
+        <property name="StockId">gtk-open</property>
       </action>
-      <action id="CompletelyBlankAction">
+      <action id="newAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Completely Blank</property>
         <property name="ShortLabel" translatable="yes">Completely Blank</property>
+        <property name="StockId">gtk-new</property>
       </action>
       <action id="BlankWaterAction">
         <property name="Type">Action</property>
@@ -107,6 +108,7 @@
         <property name="ShortLabel" translatable="yes">5</property>
         <property name="DrawAsRadio">False</property>
         <property name="Active">False</property>
+        <signal name="Changed" handler="OnFiveActionChanged" />
       </action>
       <action id="sixAction">
         <property name="Type">Toggle</property>
@@ -114,6 +116,7 @@
         <property name="ShortLabel" translatable="yes">6</property>
         <property name="DrawAsRadio">False</property>
         <property name="Active">False</property>
+        <signal name="Changed" handler="OnSixActionChanged" />
       </action>
       <action id="sevenAction">
         <property name="Type">Toggle</property>
@@ -121,6 +124,7 @@
         <property name="ShortLabel" translatable="yes">7</property>
         <property name="DrawAsRadio">False</property>
         <property name="Active">False</property>
+        <signal name="Changed" handler="OnSevenActionChanged" />
       </action>
       <action id="eightAction">
         <property name="Type">Toggle</property>
@@ -128,6 +132,14 @@
         <property name="ShortLabel" translatable="yes">8</property>
         <property name="DrawAsRadio">False</property>
         <property name="Active">False</property>
+        <signal name="Changed" handler="OnEightActionChanged" />
+      </action>
+      <action id="floppyAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Save</property>
+        <property name="ShortLabel" translatable="yes">Save</property>
+        <property name="StockId">gtk-floppy</property>
+        <signal name="Activated" handler="OnFloppyActionActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -145,20 +157,26 @@
           <widget class="Gtk.MenuBar" id="menubar3">
             <property name="MemberName" />
             <node name="menubar3" type="Menubar">
-              <node type="Menu" action="SaveAction" />
+              <node type="Menu" action="FileAction">
+                <node type="Menuitem" action="floppyAction" />
+              </node>
               <node type="Menu" action="LoadAction">
                 <node type="Menuitem" action="CatanBaseAction" />
+                <node type="Separator" />
                 <node type="Menuitem" action="ExplorersNPirates1Action" />
                 <node type="Menuitem" action="ExplorersNPirates2Action" />
                 <node type="Menuitem" action="ExplorersNPirates3Action" />
                 <node type="Menuitem" action="ExplorersNPirates4Action" />
                 <node type="Menuitem" action="ExplorersNPirates5Action" />
-                <node type="Menuitem" action="FromFileAction" />
-                <node type="Menuitem" action="CompletelyBlankAction" />
+                <node type="Separator" />
+                <node type="Menuitem" action="openAction" />
+                <node type="Separator" />
+                <node type="Menuitem" action="newAction" />
                 <node type="Menuitem" action="BlankWaterAction" />
               </node>
               <node type="Menu" action="CreateAction">
                 <node type="Menuitem" action="BaseAction" />
+                <node type="Separator" />
                 <node type="Menuitem" action="SeafarerSAction" />
                 <node type="Menuitem" action="ExplorersNPiratesAction" />
                 <node type="Menuitem" action="InfinityAction" />
@@ -179,14 +197,12 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Image" id="image1">
+          <widget class="Gtk.DrawingArea" id="drawingarea1">
             <property name="MemberName" />
           </widget>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
