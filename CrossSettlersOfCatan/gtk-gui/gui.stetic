@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/CrossSettlersOfCatan.exe" internal="true" />
+    <widget-library name="../../../../../../Program Files (x86)/Unity/MonoDevelop/AddIns/MonoDevelop.GtkCore/libstetic.dll" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="655 513">
+    <action-group name="Default">
+      <action id="SaveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Save</property>
+        <property name="ShortLabel" translatable="yes">Save</property>
+      </action>
+      <action id="LoadAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load</property>
+        <property name="ShortLabel" translatable="yes">Load</property>
+      </action>
+      <action id="CreateAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Create</property>
+        <property name="ShortLabel" translatable="yes">Create</property>
+      </action>
+      <action id="ChangeHeightAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Change Height</property>
+        <property name="ShortLabel" translatable="yes">Change Height</property>
+      </action>
+      <action id="CatanBaseAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Catan Base</property>
+        <property name="ShortLabel" translatable="yes">Catan Base</property>
+      </action>
+      <action id="ExplorersNPirates1Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Explorers 'n Pirates 1</property>
+        <property name="ShortLabel" translatable="yes">Explorers 'n Pirates 1</property>
+      </action>
+      <action id="ExplorersNPirates2Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Explorers 'n Pirates 2</property>
+        <property name="ShortLabel" translatable="yes">Explorers 'n Pirates 2</property>
+      </action>
+      <action id="ExplorersNPirates3Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Explorers 'n Pirates 3</property>
+        <property name="ShortLabel" translatable="yes">Explorers 'n Pirates 3</property>
+      </action>
+      <action id="ExplorersNPirates4Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Explorers 'n Pirates 4</property>
+        <property name="ShortLabel" translatable="yes">Explorers 'n Pirates 4</property>
+      </action>
+      <action id="ExplorersNPirates5Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Explorers 'n Pirates 5</property>
+        <property name="ShortLabel" translatable="yes">Explorers 'n Pirates 5</property>
+      </action>
+      <action id="FromFileAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">From File</property>
+        <property name="ShortLabel" translatable="yes">From File</property>
+      </action>
+      <action id="CompletelyBlankAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Completely Blank</property>
+        <property name="ShortLabel" translatable="yes">Completely Blank</property>
+      </action>
+      <action id="BlankWaterAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Blank Water</property>
+        <property name="ShortLabel" translatable="yes">Blank Water</property>
+      </action>
+      <action id="BaseAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">*Base*</property>
+        <property name="ShortLabel" translatable="yes">*Base*</property>
+      </action>
+      <action id="SeafarerSAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">Seafarer's</property>
+        <property name="ShortLabel" translatable="yes">Seafarer's</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="ExplorersNPiratesAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">Explorers 'n Pirates</property>
+        <property name="ShortLabel" translatable="yes">Explorers 'n Pirates</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="InfinityAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">Infinity</property>
+        <property name="ShortLabel" translatable="yes">Infinity</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="fiveAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">five</property>
+        <property name="ShortLabel" translatable="yes">5</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="sixAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">six</property>
+        <property name="ShortLabel" translatable="yes">6</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="sevenAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">seven</property>
+        <property name="ShortLabel" translatable="yes">7</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="eightAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">eight</property>
+        <property name="ShortLabel" translatable="yes">8</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+    </action-group>
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">Settlers of Catan</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="AllowShrink">True</property>
+    <property name="DefaultWidth">804</property>
+    <property name="DefaultHeight">486</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.MenuBar" id="menubar3">
+            <property name="MemberName" />
+            <node name="menubar3" type="Menubar">
+              <node type="Menu" action="SaveAction" />
+              <node type="Menu" action="LoadAction">
+                <node type="Menuitem" action="CatanBaseAction" />
+                <node type="Menuitem" action="ExplorersNPirates1Action" />
+                <node type="Menuitem" action="ExplorersNPirates2Action" />
+                <node type="Menuitem" action="ExplorersNPirates3Action" />
+                <node type="Menuitem" action="ExplorersNPirates4Action" />
+                <node type="Menuitem" action="ExplorersNPirates5Action" />
+                <node type="Menuitem" action="FromFileAction" />
+                <node type="Menuitem" action="CompletelyBlankAction" />
+                <node type="Menuitem" action="BlankWaterAction" />
+              </node>
+              <node type="Menu" action="CreateAction">
+                <node type="Menuitem" action="BaseAction" />
+                <node type="Menuitem" action="SeafarerSAction" />
+                <node type="Menuitem" action="ExplorersNPiratesAction" />
+                <node type="Menuitem" action="InfinityAction" />
+              </node>
+              <node type="Menu" action="ChangeHeightAction">
+                <node type="Menuitem" action="fiveAction" />
+                <node type="Menuitem" action="sixAction" />
+                <node type="Menuitem" action="sevenAction" />
+                <node type="Menuitem" action="eightAction" />
+              </node>
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="image1">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
